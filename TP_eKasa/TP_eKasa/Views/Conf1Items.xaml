@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Conf1Items">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name"/>
+            <Entry Text="{Binding ConfName}"/>
+            <Label Text="A1:"/>
+            <Entry Text="{Binding A1}"/>
+            <Label Text="A2:"/>
+            <Entry Text="{Binding A2}"/>
+            <Label Text="A3:"/>
+            <Entry Text="{Binding A3}"/>
+            <Button Text="Save" Clicked="Save"/>
+            <Button Text="Cancel" Clicked="Cancel"/>
+            <Button Text="Delete" Clicked="Delete"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

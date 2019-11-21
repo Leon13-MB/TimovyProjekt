@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.MainPage">
+
+    <StackLayout>
+        <Label Text="Table:"/>
+        <Entry x:Name="tableEntry"  Placeholder="Enter configuration you want to show"/>
+        <Button x:Name="BTN1" Text="Show Configuration" Clicked="ShowConfiguration"/>
+        <Button Text="Turn on WIFI" Clicked="TurnOnWifi"/>
+        <Button Text="Turn off WIFI" Clicked="TurnOffWifi"/>
+        <Button Text="Turn off WIFI" Clicked="TurnOffWifi"/>
+        <Button Text="skuska" Clicked="prf"/>
+        
+    </StackLayout>
+</ContentPage>
