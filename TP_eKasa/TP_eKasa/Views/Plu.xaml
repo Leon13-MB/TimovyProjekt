@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.Plu">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name ="pluView" ItemSelected="ItemSelect"  ItemsSource="{Binding plus}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding PLU}"/>
+                                    <Label Text="{Binding PLU_PRICE}"/>
+                                    <Label Text="{Binding PLU_NAME}"/>
+                                    <Label Text="{Binding PLU_BARCODE}"/>
+                                    <Label Text="{Binding PLU_TAXRATE}"/>
+                                    <Label Text="{Binding PLU_SPEC_REG}"/>
+                                    <Label Text="{Binding PLU_DPT}"/>
+                                    <Label Text="{Binding PLU_UNIT}"/>
+                                    <Label Text="{Binding PLU_LINK}"/>
+                                    <Label Text="{Binding PLU_OTHERPRICE}"/>
+                                    <Label Text="{Binding PLU_DESCRIPTOR}"/>
+                                    <Label Text="{Binding PLU_CONTAINER}"/>
+                                    <Label Text="{Binding PLU_STOCK}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

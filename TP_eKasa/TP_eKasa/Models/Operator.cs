@@ -5,21 +5,20 @@ using SQLite;
 
 namespace TP_eKasa.Models
 {
-    public class Operator
+    public class @operator
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public int OPERATOR { get; set; }
         public string OPERATOR_NAME { get; set; }
-        public int OPERATOR_PSWD { get; set; }
-        public int OPERATOR_XMODE { get; set; }
-        public int OPERATOR_ZMODE { get; set; }
-        public int OPERATOR_PMODE { get; set; }
-        public int OPERATOR_TMODE { get; set; }
-        public int OPERATOR_REFUND { get; set; }
-        public int OPERATOR_VOID { get; set; }
-        public int OPERATOR_SURDISC { get; set; }
-        public string IDKASA { get; set; }
+        public string OPERATOR_PSWD { get; set; }
+        public string OPERATOR_XMODE { get; set; }
+        public string OPERATOR_ZMODE { get; set; }
+        public string OPERATOR_PMODE { get; set; }
+        public string OPERATOR_TMODE { get; set; }
+        public string OPERATOR_REFUND { get; set; }
+        public string OPERATOR_VOID { get; set; }
+        public string OPERATOR_SURDISC { get; set; }
 
     }
 }

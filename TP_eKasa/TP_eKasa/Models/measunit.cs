@@ -7,10 +7,9 @@ namespace TP_eKasa.Models
 {
     public class measunit
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string MEASUREUNIT { get; set; }
+        public int MEASUREUNIT { get; set; }
         public string MEASUREUNIT_NAME { get; set; }
-        public string IDKASA { get; set; }
     }
 }

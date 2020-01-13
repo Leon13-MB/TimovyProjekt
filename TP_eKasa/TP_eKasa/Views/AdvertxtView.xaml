@@ -6,10 +6,18 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.AdvertxtView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+                <Label Text="Advertxt_ID"/>
+                <Label Text="{Binding ADVERTEXT}"/>
+                <Label Text="ADVERTISEMENT_TEXT:"/>
+                <Entry Text="{Binding ADVERTISEMENT_TEXT}"/>
+                <Label Text="ADVERTISEMENT_TYPE:"/>
+                <Entry Text="{Binding ADVERTISEMENT_TYPE}"/>
+                <Label Text="ADVERTISEMENT_LOOKUP:"/>
+                <Entry Text="{Binding ADVERTISEMENT_LOOKUP}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

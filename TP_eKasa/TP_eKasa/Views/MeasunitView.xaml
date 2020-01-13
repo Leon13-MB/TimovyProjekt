@@ -6,10 +6,14 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.MeasunitView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+            <Label Text="MEASUREUNIT_ID"/>
+            <Label Text="{Binding MEASUREUNIT}"/>
+            <Label Text="MEASUREUNIT_NAME:"/>
+                <Entry Text="{Binding MEASUREUNIT_NAME}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

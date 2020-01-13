@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj": {}
+    "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj": {}
   },
   "projects": {
-    "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj": {
+    "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj",
+        "projectUniqueName": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj",
         "projectName": "TP_eKasa.iOS",
-        "projectPath": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\obj\\",
+        "projectPath": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\TP_eKasa.iOS.csproj",
+        "packagesPath": "C:\\Users\\mikeb\\.nuget\\packages\\",
+        "outputPath": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mikeb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj": {
-                "projectPath": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj"
+              "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj": {
+                "projectPath": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj"
               }
             }
           }
@@ -49,10 +49,6 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.3.0.947036, )"
-            },
-            "sqlite-net": {
-              "target": "Package",
-              "version": "[1.6.292, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -73,20 +69,20 @@
         }
       }
     },
-    "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj": {
+    "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj",
+        "projectUniqueName": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj",
         "projectName": "TP_eKasa",
-        "projectPath": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\TimovyProjekt\\timovy-projekt\\TP_eKasa\\TP_eKasa\\obj\\",
+        "projectPath": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\TP_eKasa.csproj",
+        "packagesPath": "C:\\Users\\mikeb\\.nuget\\packages\\",
+        "outputPath": "D:\\GIT\\TP\\timovy-projekt\\TP_eKasa\\TP_eKasa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mikeb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -117,6 +113,10 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
@@ -124,10 +124,6 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.3.0.947036, )"
-            },
-            "sqlite-net": {
-              "target": "Package",
-              "version": "[1.6.292, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

@@ -5,13 +5,13 @@ using SQLite;
 
 namespace TP_eKasa.Models
 {
-    public class Surdisc
+    public class surdisc
     {
-        [PrimaryKey]
-        public Nullable<int> ID { get; set; }
-        public Nullable<float> SURDISC { get; set; }
-        public Nullable<float> PERCDISCRATE { get; set; }
-        public Nullable<float> PERCDISCLIMIT { get; set; }
-        public string IDKASA { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
+        public int SURDISC { get; set; }
+        public string PERCDISCRATE { get; set; }
+        public string PERCDISCLIMIT { get; set; }
+
     }
 }

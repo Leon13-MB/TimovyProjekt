@@ -5,11 +5,11 @@ using SQLite;
 
 namespace TP_eKasa.Models
 {
-    public class Textlogo
+    public class textlogo
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string TEXTLOGO { get; set; }
+        public int TEXTLOGO { get; set; }
         public string LOGOLINE1 { get; set; }
         public string LOGOLINE2 { get; set; }
         public string LOGOLINE3 { get; set; }
@@ -20,6 +20,5 @@ namespace TP_eKasa.Models
         public string LOGOLINE8 { get; set; }
         public string LOGOLINE9 { get; set; }
 
-        public string IDKASA { get; set; }
     }
 }

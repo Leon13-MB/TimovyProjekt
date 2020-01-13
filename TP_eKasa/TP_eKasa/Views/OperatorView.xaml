@@ -6,10 +6,30 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.OperatorView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+            <Label Text="OPERATOR_ID"/>
+            <Label Text="{Binding OPERATOR}"/>
+            <Label Text="OPERATOR_NAME:"/>
+            <Entry Text="{Binding OPERATOR_NAME}"/>
+            <Label Text="OPERATOR_PSWD:"/>
+            <Entry Text="{Binding OPERATOR_PSWD}"/>
+            <Label Text="OPERATOR_XMODE:"/>
+            <Entry Text="{Binding OPERATOR_XMODE}"/>
+            <Label Text="OPERATOR_ZMODE:"/>
+            <Entry Text="{Binding OPERATOR_ZMODE}"/>
+            <Label Text="OPERATOR_PMODE:"/>
+            <Entry Text="{Binding OPERATOR_PMODE}"/>
+            <Label Text="OPERATOR_TMODE:"/>
+            <Entry Text="{Binding OPERATOR_TMODE}"/>
+            <Label Text="OPERATOR_REFUND:"/>
+            <Entry Text="{Binding OPERATOR_REFUND}"/>
+            <Label Text="OPERATOR_VOID:"/>
+            <Entry Text="{Binding OPERATOR_VOID}"/>
+            <Label Text="OPERATOR_SURDISC:"/>
+                <Entry Text="{Binding OPERATOR_SURDISC}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

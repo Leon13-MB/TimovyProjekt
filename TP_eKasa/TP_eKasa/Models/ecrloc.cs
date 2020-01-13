@@ -7,7 +7,7 @@ namespace TP_eKasa.Models
 {
     public class ecrloc
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public int ECRLOC { get; set; }
         public string ECRLOC_LOCTYPE { get; set; }
@@ -17,6 +17,5 @@ namespace TP_eKasa.Models
         public string ECRLOC_BUILDINGNUMBER { get; set; }
         public string ECRLOC_PROPERTYREGNUMBER { get; set; }
         public string ECRLOC_POSTALCODE { get; set; }
-        public string IDKASA { get; set; }
     }
 }

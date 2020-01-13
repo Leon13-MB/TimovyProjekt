@@ -20,6 +20,7 @@ namespace TP_eKasa
         async void Save(object sender,EventArgs e)
         {
             var cf1 = (Configuration1)BindingContext;
+            await App.Database.DeleteConf1ItemAsync((Configuration1)BindingContext);
             await App.Database.SaveConfiguration1Async(cf1);
             await Navigation.PopAsync();
         }

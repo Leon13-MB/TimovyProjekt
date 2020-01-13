@@ -36,7 +36,7 @@ namespace TP_eKasa
             Conf1ListView.ItemsSource = await App.Database.GetConf1ItemsAsync();
         }
 
-        async void ConfSelect(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void ConfSelect(object sender, SelectedItemChangedEventArgs e)
         {
             if(e.SelectedItem != null)
             {

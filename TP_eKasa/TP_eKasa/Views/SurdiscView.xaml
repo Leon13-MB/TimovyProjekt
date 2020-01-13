@@ -6,10 +6,16 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.SurdiscView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+            <Label Text="SURDISC_ID"/>
+            <Label Text="{Binding SURDISC}"/>
+            <Label Text="PERCDISCRATE:"/>
+            <Entry Text="{Binding PERCDISCRATE}"/>
+            <Label Text="PERCDISCLIMIT:"/>
+                <Entry Text="{Binding PERCDISCLIMIT}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

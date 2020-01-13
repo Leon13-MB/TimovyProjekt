@@ -30,17 +30,11 @@ namespace TP_eKasa
                 await DisplayAlert("Configuration", "Zadajte ", "OK");
             }
             else {
-                Profile profile = new Profile(tableEntry.Text,0);
-                if (!profile.CheckConf())
-                {
-                    await DisplayAlert("Configuration", "RIP", "OK");
-                }
-                else
-                {
                     string id = tableEntry.Text;
-                    //po vykonani connect operatora sa pouzije operator GETDEVINFO/tREQ/n
+                    //po vykonani connect operatora CONNECT/tREQ/n sa pouzije operator GETDEVINFO/tREQ/n
                     //a odpoved sa parsuje... GETDEVINFO/tRSP/t0/tE155TE/tSK/t1.026/t1.00/tN/tBIGL02866C/n
-                    //na zaklade devType sa otvori prislusna tabulka konfiguracii
+                    //na zaklade devType sa otvori prislusna tabulka konfiguracii 
+                    //na konci prebehne DISCONNECT/tREQ/n
                     //zatial , ale ma byt \t, na mobile sa neda dat tab a ak surovo napisem \t da mi \\t
                     string separator = ",";
                     string[] result = id.Split(separator.ToCharArray());
@@ -57,7 +51,7 @@ namespace TP_eKasa
                             await Navigation.PushAsync(new Conf1());
                             break;
                     }
-                }
+                
             }
 
         }
@@ -78,9 +72,15 @@ namespace TP_eKasa
         {
             wifi.SetWifiEnabled(false);
         }
-        public async void prf(object sender, EventArgs e)
+
+        public async void FTP(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new profilepage());
+            await Navigation.PushAsync(new FTP());
+        }
+
+        public async void tables(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Tables());
         }
     }
 }

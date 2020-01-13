@@ -6,10 +6,14 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.FunctextView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout  x:Name="sl">
+            <Label Text="FUNCTEXT_ID"/>
+            <Label Text="{Binding FUNCTEXT}"/>
+            <Label Text="FUNCTEXT_REFERENCE_NUMBER_TEXT:"/>
+                <Entry Text="{Binding FUNCTEXT_REFERENCE_NUMBER_TEXT}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

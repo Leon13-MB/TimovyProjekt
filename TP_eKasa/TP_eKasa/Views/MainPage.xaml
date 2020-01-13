@@ -12,8 +12,8 @@
         <Button x:Name="BTN1" Text="Show Configuration" Clicked="ShowConfiguration"/>
         <Button Text="Turn on WIFI" Clicked="TurnOnWifi"/>
         <Button Text="Turn off WIFI" Clicked="TurnOffWifi"/>
-        <Button Text="Turn off WIFI" Clicked="TurnOffWifi"/>
-        <Button Text="skuska" Clicked="prf"/>
-        
+        <Button Text="FTP" Clicked="FTP"/>
+        <Button Text="Tabuľky" Clicked="tables"/>
+
     </StackLayout>
 </ContentPage>

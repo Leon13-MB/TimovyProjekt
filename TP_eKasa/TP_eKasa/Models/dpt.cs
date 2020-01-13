@@ -7,10 +7,9 @@ namespace TP_eKasa.Models
 {
     public class dpt
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public int DPT { get; set; }
         public string DPT_NAME { get; set; }
-        public string IDKASA { get; set; }
     }
 }

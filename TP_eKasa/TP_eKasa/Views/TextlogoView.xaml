@@ -6,10 +6,30 @@
              mc:Ignorable="d"
              x:Class="TP_eKasa.Views.TextlogoView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+            <Label Text="TEXTLOGO_ID"/>
+            <Label Text="{Binding TEXTLOGO}"/>
+            <Label Text="LOGOLINE1:"/>
+            <Entry Text="{Binding LOGOLINE1}"/>
+            <Label Text="LOGOLINE2:"/>
+            <Entry Text="{Binding LOGOLINE2}"/>
+            <Label Text="LOGOLINE3:"/>
+            <Entry Text="{Binding LOGOLINE3}"/>
+            <Label Text="LOGOLINE4:"/>
+            <Entry Text="{Binding LOGOLINE4}"/>
+            <Label Text="LOGOLINE5:"/>
+            <Entry Text="{Binding LOGOLINE5}"/>
+            <Label Text="LOGOLINE6:"/>
+            <Entry Text="{Binding LOGOLINE6}"/>
+            <Label Text="LOGOLINE7:"/>
+            <Entry Text="{Binding LOGOLINE7}"/>
+            <Label Text="LOGOLINE8:"/>
+            <Entry Text="{Binding LOGOLINE8}"/>
+            <Label Text="LOGOLINE9:"/>
+                <Entry Text="{Binding LOGOLINE9}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
