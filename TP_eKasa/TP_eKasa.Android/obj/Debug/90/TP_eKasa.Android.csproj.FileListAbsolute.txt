@@ -1853,12 +1853,8 @@ D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\assets\X
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\assets\Xamarin.Forms.Xaml.pdb
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.jm.arm64-v8a.s
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.jm.armeabi-v7a.s
-D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.jm.x86.s
-D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.jm.x86_64.s
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.mj.arm64-v8a.s
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.mj.armeabi-v7a.s
-D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.mj.x86.s
-D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\typemap.mj.x86_64.s
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\src\mono\MonoRuntimeProvider.java
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\assets\machine.config
 D:\GIT\TP\timovy-projekt\TP_eKasa\TP_eKasa.Android\obj\Debug\90\android\bin\mono.android.jar
