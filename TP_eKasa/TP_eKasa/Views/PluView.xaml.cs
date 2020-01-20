@@ -57,6 +57,8 @@ namespace TP_eKasa.Views
             bc1.PLU_SPEC_REG = bc.PLU_SPEC_REG;
             bc1.PLU_TAXRATE = bc.PLU_TAXRATE;
             bc1.PLU_UNIT = bc.PLU_UNIT;
+            bc1.KASA = bc.KASA;
+            bc1.selected = false;
 
             if (bc.PLU_NAME.Equals("NaN"))
             {

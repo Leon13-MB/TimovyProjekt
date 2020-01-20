@@ -36,13 +36,14 @@
                 <StackLayout>
                     <Button Text="Vyhľadaj" Clicked="Find"></Button>
                     <Button Text="Zrušiť hľadanie" Clicked="cancelFind"></Button>
+                    <Button Text="asd" Clicked="test"></Button>
                 </StackLayout>
                 <ListView x:Name ="pluView" ItemSelected="ItemSelect"  ItemsSource="{Binding plus}" RowHeight="60">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Spacing="3">
-                                    <CheckBox IsVisible="True"/>
+                                    <CheckBox IsVisible="True" IsChecked="{Binding selected}"/>
                                     <Label Text="{Binding PLU}"/>
                                     <Label Text="{Binding PLU_NAME}"/>
                                     <Label Text="{Binding PLU_PRICE}"/>
@@ -56,6 +57,7 @@
                                     <Label Text="{Binding PLU_DESCRIPTOR}"/>
                                     <Label Text="{Binding PLU_CONTAINER}"/>
                                     <Label Text="{Binding PLU_STOCK}"/>
+                                    <Label Text="{Binding KASA}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

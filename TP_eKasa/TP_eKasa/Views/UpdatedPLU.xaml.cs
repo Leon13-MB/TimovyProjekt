@@ -15,6 +15,7 @@ namespace TP_eKasa.Views
     {
         int polozky = 0;
         List<updatedPlu> plus2 = new List<updatedPlu>();
+        List<updatedPlu> plus = new List<updatedPlu>();
         bool find = false;
 
         Kasa kasa = new Kasa();
@@ -31,7 +32,7 @@ namespace TP_eKasa.Views
 
         public async void changeListView()
         {
-            List<updatedPlu> plus = new List<updatedPlu>();
+            plus = new List<updatedPlu>();
             string name = kasa.getTypeOfKasa();
             plus = await App.Database.getUpdatedPLU();
             if (plus.Count > 0)
@@ -169,5 +170,14 @@ namespace TP_eKasa.Views
             polozky = 0;
             changeListView();
         }
+
+        public void test(object sender, EventArgs e)
+        {
+            foreach(updatedPlu up in pluView.ItemsSource)
+            {
+                var p = up;
+            }
+        }
+
     }
 }

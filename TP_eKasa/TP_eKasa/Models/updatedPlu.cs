@@ -22,5 +22,6 @@ namespace TP_eKasa.Models
         public string PLU_DESCRIPTOR { get; set; }
         public string PLU_CONTAINER { get; set; }
         public string KASA { get; set; }
+        public bool selected { get; set; }
     }
 }

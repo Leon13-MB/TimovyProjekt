@@ -115,7 +115,17 @@ namespace TP_eKasa.Views
                     d.LOGOLINE9 + "\n";
                 }
             }
-            string stringToSend = dptstring + advertxtstring + ecrlocstring + functextstring + measunitstring + operatorstring + surdiscstring + textlogostring + traillogstring;
+            List<updatedPlu> updatedPlus = await App.Database.getUpdatedPLU();
+            string uplustring = "PLU\tPLU_PRICE\tPLU_NAME\tPLU_BARCODE\tPLU_TAXRATE\tPLU_SPEC_REG\tPLU_DPT\tPLU_UNIT\tPLU_LINK\tPLU_OTHERPRICE\tPLU_DESCRIPTOR\tPLU_CONTAINER\n";
+            foreach (updatedPlu d in updatedPlus)
+            {
+                if (d.KASA.Equals(kasa.getTypeOfKasa()))
+                {
+                    uplustring += d.PLU.ToString()+"\t"+d.PLU_PRICE + "\t" +d.PLU_BARCODE + "\t" +d.PLU_TAXRATE + "\t" +
+                        d.PLU_SPEC_REG + "\t" +d.PLU_DPT + "\t" +d.PLU_UNIT + "\t" +d.PLU_LINK + "\t" +d.PLU_OTHERPRICE + "\t" + d.PLU_DESCRIPTOR + "\t" +d.PLU_CONTAINER + "\n";
+                }
+            }
+            string stringToSend = uplustring + dptstring + advertxtstring + ecrlocstring + functextstring + measunitstring + operatorstring + surdiscstring + textlogostring + traillogstring;
             stringToSend = stringToSend.Replace("NaN", "");
         }
 
