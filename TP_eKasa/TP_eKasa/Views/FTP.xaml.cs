@@ -38,7 +38,7 @@ namespace TP_eKasa
             Stream resStream = res.GetResponseStream();
             StreamReader reader = new StreamReader(resStream);
             DataTable datatable = new DataTable();
-            EDFHandler edf = new EDFHandler();
+            BackupHandler edf = new BackupHandler();
             datatable = edf.readEDF(reader);
             List<dpt> dpts = new List<dpt>();
 

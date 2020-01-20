@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.PopupView">
+
+    <StackLayout Margin="12"
+                 Padding="24"
+                 Spacing="24"
+                 BackgroundColor="White"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+        <StackLayout>
+            <Label Text="Vyhľadavanie"/>
+            <Picker x:Name="picker"
+                    Title="Čo hľadáme...">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>PLU_ID</x:String>
+                        <x:String>PLU_NAME</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+        <StackLayout>
+            <Label Text="Text"/>
+            <Entry Placeholder="Čo vyhľadavame..."/>
+        </StackLayout>
+        <Button BackgroundColor="DodgerBlue"
+                Text="Vyhľadávanie"
+                TextColor="White"
+                Clicked="Find"/>
+    </StackLayout>
+
+</pages:PopupPage>

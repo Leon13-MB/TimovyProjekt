@@ -22,179 +22,65 @@ namespace TP_eKasa.Views
             InitializeComponent();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             addSaveOrUpdate();
-            DataTable dt = new DataTable();
-            EDFHandler edf = new EDFHandler();
-            var temp = (plu)BindingContext;
-            using (var stream = await FileSystem.OpenAppPackageFileAsync("PLU.EDF"))
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    dt = edf.readEDF(reader);
-                    reader.Close();
-                }
-                stream.Close();
-            }
-            var bc = (plu)BindingContext;
-            if (temp.PLU > dt.Rows.Count && bc.ID != 0)
-            {
-                addDeleteButton();
-            }
         }
 
-        void addDeleteButton()
-        {
-            Button button = new Button
-            {
-                Text = "Delete"
-            };
-
-            button.Clicked += async (sender, args) =>
-            {
-                var deletedItem = (plu)BindingContext;
-                var action = await DisplayActionSheet("Urcite vymazat?", null, null, "Ano", "Nie");
-                if (action.Equals("Ano") && action != null)
-                {
-                    await App.Database.deletePLU(deletedItem);
-                    int num = deletedItem.PLU - 1;
-                    List<plu> plus = await App.Database.getPLU();
-                    foreach (plu a in plus.Skip(num))
-                    {
-                        a.PLU -= 1;
-                        await App.Database.updatePLU(a);
-                    }
-                    await Navigation.PopAsync();
-                }
-                else if (action.Equals("Nie") && action != null)
-                {
-                }
-            };
-            sl.Children.Add(button);
-        }
-
-        async void addSaveOrUpdate()
+        public void addSaveOrUpdate()
         {
             var bc = (plu)BindingContext;
-            List<plu> at = await App.Database.getPLU();
-            foreach (plu a in at)
+            if (bc.PLU_NAME.Equals("NaN"))
             {
-                if (bc.PLU == a.PLU)
-                {
-                    suButton.Text = "Update";
-                    break;
-                }
-                else
-                {
-                    suButton.Text = "Save";
-                }
+                suButton.Text = "Save";
+            }
+            else
+            {
+                suButton.Text = "Update";
             }
         }
 
         async void buttonClicked(object sender, EventArgs e)
         {
-            var action = "";
-            if (suButton.Text.Equals("Save"))
+            var bc = (plu)BindingContext;
+            var bc1 = new updatedPlu();
+            bc1.PLU = bc.PLU;
+            bc1.PLU_BARCODE = bc.PLU_BARCODE;
+            bc1.PLU_CONTAINER = bc.PLU_CONTAINER;
+            bc1.PLU_DESCRIPTOR = bc.PLU_DESCRIPTOR;
+            bc1.PLU_DPT = bc.PLU_DPT;
+            bc1.PLU_LINK = bc.PLU_LINK;
+            bc1.PLU_NAME = bc.PLU_NAME;
+            bc1.PLU_OTHERPRICE = bc.PLU_OTHERPRICE;
+            bc1.PLU_PRICE = bc.PLU_PRICE;
+            bc1.PLU_SPEC_REG = bc.PLU_SPEC_REG;
+            bc1.PLU_TAXRATE = bc.PLU_TAXRATE;
+            bc1.PLU_UNIT = bc.PLU_UNIT;
+
+            if (bc.PLU_NAME.Equals("NaN"))
             {
-                await App.Database.savePLU((plu)BindingContext);
-                action = await DisplayActionSheet("Ulozene", "OK", null);
-                if (action.Equals("OK") && action != null)
+                await DisplayAlert("Warning", "Musíte zadať meno", "OK");
+            }
+            else
+            {
+                if (bc.PLU_PRICE.Equals("NaN"))
                 {
-                    await Navigation.PopAsync();
+                    bc.PLU_PRICE = "0.00";
                 }
-            }
-            else if (suButton.Text.Equals("Update"))
-            {
-                await App.Database.updatePLU((plu)BindingContext);
-                action = await DisplayActionSheet("Aktualizovane", null, null, "OK");
-                if (action.Equals("OK"))
+                else if (bc.PLU_PRICE.Contains(','))
                 {
-                    saveEDF();
-                    await Navigation.PopAsync();
+                    bc.PLU_PRICE.Replace(',', '.');
                 }
-                else
+                else if(!bc.PLU_PRICE.Contains('.'))
                 {
-                    saveEDF();
-                    await Navigation.PopAsync();
+                    bc.PLU_PRICE += ".00";
                 }
+                await App.Database.updatePLU(bc);
+                await App.Database.saveUpdatedPLU(bc1);
+                await Navigation.PopAsync();
             }
         }
-        //odosle request POST s fileom PLU.EDF
-        void sendRequest(object sender, EventArgs e)
-        {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string filename = Path.Combine(path, "PLU.EDF");
-            string content = "";
-            using (var streamReader = new StreamReader(filename))
-            {
-                content = streamReader.ReadToEnd();
-            }
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Restore");
-            request.Method = "POST";
-            byte[] bytes = Encoding.UTF8.GetBytes(content);
-
-            Stream requestStream = request.GetRequestStream();
-            requestStream.Write(bytes, 0, bytes.Length);
-            requestStream.Close();
-        }
-        //backup vlozi do labelu pod tlacidlom
-        void getBackup(object sender, EventArgs e)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Backup");
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream resStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(resStream);
-
-            string txt = reader.ReadToEnd();
-            Backup.Text = txt;
-            /*TU JE REQUEST PRE ZISKANIE ID KASY A POCTU POLOZIEK
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Ecrinfo");
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream resStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(resStream);
-
-            string txt = reader.ReadToEnd();
-            string[] temp = txt.Split('\t');
-            string IDKASY = temp[0];
-            string POCETPOLOZIEK = temp[1];
-             
-             */
-        }
-
-        public void saveEDF()
-        {
-            var savedItem = (plu)BindingContext;
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string filename = Path.Combine(path, "PLU.EDF");
-            string data = savedItem.PLU.ToString() + "\t" + savedItem.PLU_PRICE + "\t" + savedItem.PLU_NAME + "\t" +
-                savedItem.PLU_BARCODE + "\t" + savedItem.PLU_TAXRATE + "\t" + savedItem.PLU_SPEC_REG + "\t" + savedItem.PLU_DPT + "\t" +
-                savedItem.PLU_UNIT + "\t" + savedItem.PLU_LINK + "\t" + savedItem.PLU_OTHERPRICE + "\t" + savedItem.PLU_DESCRIPTOR + "\t" +
-                savedItem.PLU_CONTAINER + "\t" + savedItem.PLU_STOCK;
-            using (var streamWriter = new StreamWriter(filename, true))
-            {
-                streamWriter.WriteLine(data);
-            }
-
-            using (var streamReader = new StreamReader(filename))
-            {
-                string content = streamReader.ReadToEnd();
-            }
-
-            //string EDF = createEDF(dt);
-            //FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(path);
-            //ftpWebRequest.Method = WebRequestMethods.Ftp.UploadFile;
-
-            //ftpWebRequest.Credentials = new NetworkCredential(textBox1.Text, textBox2.Text);
-
-            //byte[] bytes = Encoding.UTF8.GetBytes(EDF);
-
-            //Stream requestStream = ftpWebRequest.GetRequestStream();
-            //requestStream.Write(bytes, 0, bytes.Length);
-            //requestStream.Close();
-
-        }
     }
 }

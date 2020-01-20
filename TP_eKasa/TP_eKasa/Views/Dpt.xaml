@@ -8,19 +8,47 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-            <ListView x:Name ="dptView" ItemSelected="ItemSelect"  ItemsSource="{Binding dpts}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding DPT}"/>
-                                <Label Text="{Binding DPT_NAME}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Predošlé" Clicked="Previous"></Button>
+                    <Button Text="Nasledujúce" Clicked="Next"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Picker x:Name="picker"
+                    Title="Atribút">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>DPT_ID</x:String>
+                                <x:String>DPT_NAME</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="polozka" Placeholder="Čo hľadáme"/>
+                    <Picker x:Name="pickerPokladna"
+                            Title="Pokladňa">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>E50o</x:String>
+                                <x:String>E150o</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Vyhľadaj" Clicked="Find"></Button>
+                </StackLayout>
+                <ListView x:Name ="dptView" ItemSelected="ItemSelect"  ItemsSource="{Binding dpts}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding DPT}"/>
+                                    <Label Text="{Binding DPT_NAME}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

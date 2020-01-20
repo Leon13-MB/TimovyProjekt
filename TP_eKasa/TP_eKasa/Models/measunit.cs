@@ -11,5 +11,6 @@ namespace TP_eKasa.Models
         public int ID { get; set; }
         public int MEASUREUNIT { get; set; }
         public string MEASUREUNIT_NAME { get; set; }
+        public string KASA { get; set; }
     }
 }

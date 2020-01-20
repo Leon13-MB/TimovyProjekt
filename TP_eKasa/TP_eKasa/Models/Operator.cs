@@ -19,6 +19,7 @@ namespace TP_eKasa.Models
         public string OPERATOR_REFUND { get; set; }
         public string OPERATOR_VOID { get; set; }
         public string OPERATOR_SURDISC { get; set; }
+        public string KASA { get; set; }
 
     }
 }

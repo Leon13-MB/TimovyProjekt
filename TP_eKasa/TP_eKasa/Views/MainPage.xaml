@@ -5,15 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TP_eKasa.MainPage">
-
-    <StackLayout>
-        <Label Text="Table:"/>
-        <Entry x:Name="tableEntry"  Placeholder="Enter configuration you want to show"/>
-        <Button x:Name="BTN1" Text="Show Configuration" Clicked="ShowConfiguration"/>
-        <Button Text="Turn on WIFI" Clicked="TurnOnWifi"/>
-        <Button Text="Turn off WIFI" Clicked="TurnOffWifi"/>
-        <Button Text="FTP" Clicked="FTP"/>
-        <Button Text="Tabuľky" Clicked="tables"/>
-
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
+            <ActivityIndicator x:Name="loading" IsRunning="False" IsVisible="False" IsEnabled="False" Color="Blue" BackgroundColor="White"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="loadingLBL" Text="Načitávam data" IsVisible="False" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            <Image x:Name="LoginIcon" Source="LoginIcon.png"/>
+                <Button Text="Tabuľky" Clicked="tables"/>
+            <Button Text="test" Clicked="test"/>
+            <Button Text="UPLOADREQUEST" Clicked="upload"/>
+            <Image x:Name="image"/>
+                <Button x:Name="Btn_Logout" Text="Odhlásiť sa" Clicked="LogoutProcedure"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

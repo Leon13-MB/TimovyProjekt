@@ -84,6 +84,7 @@
     <AndroidAsset Include="Assets\SURDISC.EDF" />
     <AndroidAsset Include="Assets\TEXTLOGO.EDF" />
     <AndroidAsset Include="Assets\TRAILLOG.EDF" />
+    <AndroidAsset Include="Assets\backup.tsv" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -107,13 +108,28 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\LoginIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TP_eKasa\TP_eKasa.csproj">
       <Project>{5D161A8B-DEF1-4FC4-B0C5-CC23380EC94A}</Project>
       <Name>TP_eKasa</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\E150o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\E50o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\HomeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\DatabaseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\TextFile1.tsv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -19,6 +19,7 @@
                 <Button Text="Surdisc" Clicked="Surdisc"/>
                 <Button Text="Textlogo" Clicked="Textlogo"/>
                 <Button Text="Traillog" Clicked="Triallog"/>
+                <Button Text="UpdatedPlu" Clicked="UpdatedPlu"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

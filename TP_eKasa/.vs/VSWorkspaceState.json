@@ -3,9 +3,8 @@
     "",
     "\\TP_eKasa",
     "\\TP_eKasa\\Data",
-    "\\TP_eKasa\\Models",
-    "\\TP_eKasa\\Views"
+    "\\TP_eKasa\\Models"
   ],
-  "SelectedNode": "\\TP_eKasa\\App.xaml.cs",
+  "SelectedNode": "\\TP_eKasa.sln",
   "PreviewInSolutionExplorer": false
 }

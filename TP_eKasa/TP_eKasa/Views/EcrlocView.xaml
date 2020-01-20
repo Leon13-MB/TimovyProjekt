@@ -8,23 +8,26 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  x:Name="sl">
-            <Label Text="ECRLOC_ID"/>
-            <Label Text="{Binding ECRLOC}"/>
-            <Label Text="ECRLOC_LOCTYPE:"/>
-            <Entry Text="{Binding ECRLOC_LOCTYPE}"/>
-            <Label Text="ECRLOC_LOCDESC:"/>
-            <Entry Text="{Binding ECRLOC_LOCDESC}"/>
-            <Label Text="ECRLOC_MUNICIPALITY:"/>
-            <Entry Text="{Binding ECRLOC_MUNICIPALITY}"/>
-            <Label Text="ECRLOC_STREETNAME:"/>
-            <Entry Text="{Binding ECRLOC_STREETNAME}"/>
-            <Label Text="ECRLOC_BUILDINGNUMBER:"/>
-            <Entry Text="{Binding ECRLOC_BUILDINGNUMBER}"/>
-            <Label Text="ECRLOC_PROPERTYREGNUMBER:"/>
-            <Entry Text="{Binding ECRLOC_PROPERTYREGNUMBER}"/>
-            <Label Text="ECRLOC_POSTALCODE:"/>
+                <Label Text="ECRLOC_ID"/>
+                <Label Text="{Binding ECRLOC}"/>
+                <Label Text="ECRLOC_LOCTYPE:"/>
+                <Entry Text="{Binding ECRLOC_LOCTYPE}"/>
+                <Label Text="ECRLOC_LOCDESC:"/>
+                <Entry Text="{Binding ECRLOC_LOCDESC}"/>
+                <Label Text="ECRLOC_MUNICIPALITY:"/>
+                <Entry Text="{Binding ECRLOC_MUNICIPALITY}"/>
+                <Label Text="ECRLOC_STREETNAME:"/>
+                <Entry Text="{Binding ECRLOC_STREETNAME}"/>
+                <Label Text="ECRLOC_BUILDINGNUMBER:"/>
+                <Entry Text="{Binding ECRLOC_BUILDINGNUMBER}"/>
+                <Label Text="ECRLOC_PROPERTYREGNUMBER:"/>
+                <Entry Text="{Binding ECRLOC_PROPERTYREGNUMBER}"/>
+                <Label Text="ECRLOC_POSTALCODE:"/>
                 <Entry Text="{Binding ECRLOC_POSTALCODE}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
+                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
+                <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

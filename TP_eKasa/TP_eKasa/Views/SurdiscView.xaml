@@ -8,13 +8,16 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout x:Name="sl">
-            <Label Text="SURDISC_ID"/>
-            <Label Text="{Binding SURDISC}"/>
-            <Label Text="PERCDISCRATE:"/>
-            <Entry Text="{Binding PERCDISCRATE}"/>
-            <Label Text="PERCDISCLIMIT:"/>
+                <Label Text="SURDISC_ID"/>
+                <Label Text="{Binding SURDISC}"/>
+                <Label Text="PERCDISCRATE:"/>
+                <Entry Text="{Binding PERCDISCRATE}"/>
+                <Label Text="PERCDISCLIMIT:"/>
                 <Entry Text="{Binding PERCDISCLIMIT}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
+                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
+                <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

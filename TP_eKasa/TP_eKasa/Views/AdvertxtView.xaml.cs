@@ -10,6 +10,7 @@ using TP_eKasa.Models;
 using Xamarin.Essentials;
 using System.IO;
 using System.Data;
+using System.Net;
 
 namespace TP_eKasa.Views
 {
@@ -26,7 +27,7 @@ namespace TP_eKasa.Views
             base.OnAppearing();
             addSaveOrUpdate();
             DataTable dt = new DataTable();
-            EDFHandler edf = new EDFHandler();
+            BackupHandler edf = new BackupHandler();
             var temp = (advertxt)BindingContext;
             using (var stream = await FileSystem.OpenAppPackageFileAsync("ADVERTXT.EDF"))
             {
@@ -54,13 +55,13 @@ namespace TP_eKasa.Views
             button.Clicked += async (sender, args) =>
             {
                 var deletedItem = (advertxt)BindingContext;
-                var action = await DisplayActionSheet("Urcite vymazat?", null, null,"Ano","Nie");
+                var action = await DisplayActionSheet("Urcite vymazat?", null, null, "Ano", "Nie");
                 if (action.Equals("Ano") && action != null)
                 {
                     await App.Database.deleteADVERTXT(deletedItem);
-                    int num = deletedItem.ADVERTEXT-1;
+                    int num = deletedItem.ADVERTEXT - 1;
                     List<advertxt> advertxts = await App.Database.getADVERTXT();
-                    foreach(advertxt a in advertxts.Skip(num))
+                    foreach (advertxt a in advertxts.Skip(num))
                     {
                         a.ADVERTEXT -= 1;
                         await App.Database.updateADVERTXT(a);
@@ -122,6 +123,7 @@ namespace TP_eKasa.Views
                 }
                 else
                 {
+                    saveEDF();
                     await Navigation.PopAsync();
                 }
             }
@@ -132,7 +134,7 @@ namespace TP_eKasa.Views
             var savedItem = (advertxt)BindingContext;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string filename = Path.Combine(path, "ADVERTXT.EDF");
-            string data = savedItem.ADVERTEXT.ToString()+ "\t" + savedItem.ADVERTISEMENT_TEXT + "\t" + savedItem.ADVERTISEMENT_TYPE + "\t" + savedItem.ADVERTISEMENT_LOOKUP;
+            string data = savedItem.ADVERTEXT.ToString() + "\t" + savedItem.ADVERTISEMENT_TEXT + "\t" + savedItem.ADVERTISEMENT_TYPE + "\t" + savedItem.ADVERTISEMENT_LOOKUP;
             using (var streamWriter = new StreamWriter(filename, true))
             {
                 streamWriter.WriteLine(data);
@@ -155,6 +157,47 @@ namespace TP_eKasa.Views
             //requestStream.Write(bytes, 0, bytes.Length);
             //requestStream.Close();
 
+        }
+        void sendRequest(object sender, EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string filename = Path.Combine(path, "ADVERTXT.EDF");
+            string content = "";
+            using (var streamReader = new StreamReader(filename))
+            {
+                content = streamReader.ReadToEnd();
+            }
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Restore");
+            request.Method = "POST";
+            byte[] bytes = Encoding.UTF8.GetBytes(content);
+
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(bytes, 0, bytes.Length);
+            requestStream.Close();
+        }
+        //backup vlozi do labelu pod tlacidlom
+        void getBackup(object sender, EventArgs e)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Backup");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream resStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(resStream);
+
+            string txt = reader.ReadToEnd();
+            Backup.Text = txt;
+            /*TU JE REQUEST PRE ZISKANIE ID KASY A POCTU POLOZIEK
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://icm.local/Services?Ecrinfo");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream resStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(resStream);
+
+            string txt = reader.ReadToEnd();
+            string[] temp = txt.Split('\t');
+            string IDKASY = temp[0];
+            string POCETPOLOZIEK = temp[1];
+             
+             */
         }
     }
 }

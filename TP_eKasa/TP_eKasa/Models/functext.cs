@@ -11,5 +11,6 @@ namespace TP_eKasa.Models
         public int ID { get; set; }
         public int FUNCTEXT { get; set; }
         public string FUNCTEXT_REFERENCE_NUMBER_TEXT { get; set; }
+        public string KASA { get; set; }
     }
 }

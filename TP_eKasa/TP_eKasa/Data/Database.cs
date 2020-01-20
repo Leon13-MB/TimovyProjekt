@@ -15,35 +15,98 @@ namespace TP_eKasa.Data
         public Database()
         {
             connection = DependencyService.Get<ILocalFileHelper>().GetConnection();
-            connection.CreateTablesAsync<advertxt,dpt,ecrloc,functext,measunit>().Wait();
+            connection.CreateTablesAsync<advertxt, dpt, ecrloc, functext, measunit>().Wait();
             connection.CreateTablesAsync<plu, @operator, surdisc, textlogo, traillog>().Wait();
+            connection.CreateTableAsync<updatedPlu>().Wait();
         }
 
-        public Task<List<Configuration1>> GetConf1ItemsAsync()
+        public Task<List<updatedPlu>> getUpdatedPluByName(string _PluName, string _Kasa)
         {
-            return connection.Table<Configuration1>().ToListAsync();
-        }
-        public Task<Configuration1> GetConf1ItemAsync(int _ID)
-        {
-            return connection.Table<Configuration1>().Where(i => i.ID == _ID).FirstOrDefaultAsync();
-        }
-
-        public Task<int> SaveConfiguration1Async(Configuration1 configuration1)
-        {
-
-            if (configuration1.ID != 0)
+            try
             {
-                return connection.UpdateAsync(configuration1);
+                return connection.Table<updatedPlu>().Where(p => p.PLU_NAME.Contains(_PluName) && p.KASA.Equals(_Kasa)).ToListAsync();
             }
-            else
+            catch (Exception e)
             {
-                return connection.InsertAsync(configuration1);
+                string excep = e.Message;
+                return null;
             }
         }
-        public Task<int> DeleteConf1ItemAsync(Configuration1 configuration1)
+        public Task<updatedPlu> selectUpdatedPlu(int _plu, string _Kasa)
         {
-            return connection.DeleteAsync(configuration1);
+            try
+            {
+                return connection.Table<updatedPlu>().Where(p => p.PLU == _plu && p.KASA.Equals(_Kasa)).FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                string excep = e.Message;
+                return null;
+            }
         }
+        public Task<List<updatedPlu>> getUpdatedPLU()
+        {
+            return connection.Table<updatedPlu>().ToListAsync();
+        }
+        public Task<int> saveUpdatedPLU(updatedPlu updatedPlu)
+        {
+            return connection.InsertAsync(updatedPlu);
+        }
+
+        public Task<int> updateUpdatedPLU(updatedPlu updatedPlu)
+        {
+            return connection.UpdateAsync(updatedPlu);
+        }
+        public Task<int> deleteUpdatedDPT(updatedPlu updatedPlu)
+        {
+            return connection.DeleteAsync(updatedPlu);
+        }
+
+        public Task<plu> getKasaPLU(string _Kasa)
+        {
+            return connection.Table<plu>().Where(p => p.KASA.Equals(_Kasa)).FirstOrDefaultAsync();
+        }
+
+        public Task<plu> selectPlu(int _plu, string _Kasa)
+        {
+            try
+            {
+                return connection.Table<plu>().Where(p => p.PLU == _plu && p.KASA.Equals(_Kasa)).FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                string excep = e.Message;
+                return null;
+            }
+        }
+
+        public Task<plu> getWithoutNamePlu(string _PluName, string _Kasa)
+        {
+            try
+            {
+                return connection.Table<plu>().Where(p => p.PLU_NAME.Equals(_PluName) && p.KASA.Equals(_Kasa)).FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                string excep = e.Message;
+                return null;
+            }
+        }
+
+        public Task<List<plu>> getPluByName(string _PluName, string _Kasa)
+        {
+            try
+            {
+                return connection.Table<plu>().Where(p => p.PLU_NAME.Contains(_PluName) && p.KASA.Equals(_Kasa)).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                string excep = e.Message;
+                return null;
+            }
+        }
+
+
         //dpt
         public Task<List<dpt>> getDPT()
         {
@@ -56,7 +119,7 @@ namespace TP_eKasa.Data
 
         public Task<int> updateDPT(dpt dpt)
         {
-                return connection.UpdateAsync(dpt);
+            return connection.UpdateAsync(dpt);
         }
         public Task<int> deleteDPT(dpt dpt)
         {

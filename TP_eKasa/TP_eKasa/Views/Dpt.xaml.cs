@@ -13,6 +13,9 @@ namespace TP_eKasa.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Dpt : ContentPage
     {
+        int polozky = 0;
+        int count = 0;
+        List<dpt> dpts = new List<dpt>();
         public Dpt()
         {
             InitializeComponent();
@@ -38,13 +41,68 @@ namespace TP_eKasa.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            dptView.ItemsSource = await App.Database.getDPT();
+            dpts = await App.Database.getDPT();
+            foreach (dpt d in dpts)
+            {
+                if (!d.DPT_NAME.Equals(""))
+                {
+                    if (count < 11)
+                    {
+                        count++;
+                    }
+                }
+            }
+            dptView.ItemsSource = dpts.Skip(polozky).Take(count);
         }
         async void ItemSelect(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
                 await Navigation.PushAsync(new DptView() { BindingContext = e.SelectedItem as dpt });
+            }
+        }
+        private void Previous(object sender, EventArgs e)
+        {
+            if (polozky > 0 && count > 10)
+            {
+                polozky = polozky - 10;
+                OnAppearing();
+            }
+        }
+
+        private void Next(object sender, EventArgs e)
+        {
+            if (count > 10)
+            {
+                polozky = polozky + 10;
+                OnAppearing();
+            }
+        }
+        public void Find(object sender, EventArgs e)
+        {
+            if (picker != null && polozka != null && pickerPokladna != null)
+            {
+                if (picker.SelectedItem.ToString().Equals("DPT_ID"))
+                {
+                    foreach (dpt d in dpts)
+                    {
+                        if (d.DPT == Convert.ToInt32(polozka.Text))
+                        {
+                            dptView.ItemsSource = dpts.Skip(d.DPT - 1).Take(1);
+                        }
+                    }
+                }
+                if (picker.SelectedItem.ToString().Equals("DPT_NAME"))
+                {
+                    foreach (dpt d in dpts)
+                    {
+                        if (d.DPT_NAME.Equals(polozka.Text))
+                        {
+                            int idx = d.DPT;
+                            dptView.ItemsSource = dpts.Skip(idx - 1).Take(1);
+                        }
+                    }
+                }
             }
         }
     }

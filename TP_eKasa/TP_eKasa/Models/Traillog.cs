@@ -19,6 +19,7 @@ namespace TP_eKasa.Models
         public string LOGOLINE7 { get; set; }
         public string LOGOLINE8 { get; set; }
         public string LOGOLINE9 { get; set; }
+        public string KASA { get; set; }
 
 
     }

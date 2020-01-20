@@ -17,5 +17,6 @@ namespace TP_eKasa.Models
         public string ECRLOC_BUILDINGNUMBER { get; set; }
         public string ECRLOC_PROPERTYREGNUMBER { get; set; }
         public string ECRLOC_POSTALCODE { get; set; }
+        public string KASA { get; set; }
     }
 }

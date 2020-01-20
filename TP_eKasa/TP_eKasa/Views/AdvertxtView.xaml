@@ -17,6 +17,9 @@
                 <Label Text="ADVERTISEMENT_LOOKUP:"/>
                 <Entry Text="{Binding ADVERTISEMENT_LOOKUP}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
+                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
+                <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

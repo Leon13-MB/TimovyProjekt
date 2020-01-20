@@ -12,6 +12,7 @@ namespace TP_eKasa.Models
         public int SURDISC { get; set; }
         public string PERCDISCRATE { get; set; }
         public string PERCDISCLIMIT { get; set; }
+        public string KASA { get; set; }
 
     }
 }

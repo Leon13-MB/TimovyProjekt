@@ -13,5 +13,6 @@ namespace TP_eKasa.Models
         public string ADVERTISEMENT_TEXT { get; set; }
         public string ADVERTISEMENT_TYPE { get; set; }
         public string ADVERTISEMENT_LOOKUP { get; set; }
+        public string KASA { get; set; }
     }
 }

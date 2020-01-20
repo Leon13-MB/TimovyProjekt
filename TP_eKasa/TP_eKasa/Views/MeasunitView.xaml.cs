@@ -26,7 +26,7 @@ namespace TP_eKasa.Views
             base.OnAppearing();
             addSaveOrUpdate();
             DataTable dt = new DataTable();
-            EDFHandler edf = new EDFHandler();
+            BackupHandler edf = new BackupHandler();
             var temp = (measunit)BindingContext;
             using (var stream = await FileSystem.OpenAppPackageFileAsync("MEASUNIT.EDF"))
             {

@@ -31,13 +31,8 @@
             <Label Text="PLU_DESCRIPTOR:"/>
             <Entry Text="{Binding PLU_DESCRIPTOR}"/>
             <Label Text="PLU_CONTAINER:"/>
-            <Entry Text="{Binding PLU_CONTAINER}"/>
-            <Label Text="PLU_STOCK:"/>
-                <Entry Text="{Binding PLU_STOCK}"/>
+                <Entry Text="{Binding PLU_CONTAINER}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
-
-                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
-                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
                 <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>

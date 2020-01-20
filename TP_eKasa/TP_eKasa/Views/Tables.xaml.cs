@@ -57,5 +57,9 @@ namespace TP_eKasa.Views
         {
             await Navigation.PushAsync(new Traillog());
         }
+        private async void UpdatedPlu(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UpdatedPLU());
+        }
     }
 }

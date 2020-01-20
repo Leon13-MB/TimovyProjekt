@@ -8,11 +8,14 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  x:Name="sl">
-            <Label Text="DPT_ID"/>
-            <Label Text="{Binding DPT}"/>
-            <Label Text="DPT_NAME:"/>
+                <Label Text="DPT_ID"/>
+                <Label Text="{Binding DPT}"/>
+                <Label Text="DPT_NAME:"/>
                 <Entry Text="{Binding DPT_NAME}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
+                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
+                <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

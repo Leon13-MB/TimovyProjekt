@@ -8,11 +8,14 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  x:Name="sl">
-            <Label Text="FUNCTEXT_ID"/>
-            <Label Text="{Binding FUNCTEXT}"/>
-            <Label Text="FUNCTEXT_REFERENCE_NUMBER_TEXT:"/>
+                <Label Text="FUNCTEXT_ID"/>
+                <Label Text="{Binding FUNCTEXT}"/>
+                <Label Text="FUNCTEXT_REFERENCE_NUMBER_TEXT:"/>
                 <Entry Text="{Binding FUNCTEXT_REFERENCE_NUMBER_TEXT}"/>
                 <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Button x:Name="srButton" Text="Odosli zmeny-request" Clicked="sendRequest"/>
+                <Button x:Name="getButton" Text="Posli request pre backup" Clicked="getBackup"/>
+                <Label x:Name="Backup" Text=""/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
