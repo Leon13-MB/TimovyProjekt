@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.EcrlocaView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  x:Name="sl">
+                <Label Text="ECRLOC_ID"/>
+                <Label Text="{Binding ECRLOC}"/>
+                <Label Text="ECRLOC_LOCTYPE:"/>
+                <Label Text="{Binding ECRLOC_LOCTYPE}"/>
+                <Label Text="ECRLOC_LOCDESC:"/>
+                <Label Text="{Binding ECRLOC_LOCDESC}"/>
+                <Label Text="ECRLOC_MUNICIPALITY:"/>
+                <Label Text="{Binding ECRLOC_MUNICIPALITY}"/>
+                <Label Text="ECRLOC_STREETNAME:"/>
+                <Label Text="{Binding ECRLOC_STREETNAME}"/>
+                <Label Text="ECRLOC_BUILDINGNUMBER:"/>
+                <Label Text="{Binding ECRLOC_BUILDINGNUMBER}"/>
+                <Label Text="ECRLOC_PROPERTYREGNUMBER:"/>
+                <Label Text="{Binding ECRLOC_PROPERTYREGNUMBER}"/>
+                <Label Text="ECRLOC_POSTALCODE:"/>
+                <Label Text="{Binding ECRLOC_POSTALCODE}"/>
+                <Label x:Name="Backup" Text=""/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.PluView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+            <Label Text="PLU_ID"/>
+            <Label Text="{Binding PLU}"/>
+            <Label Text="PLU_PRICE:"/>
+            <Entry Text="{Binding PLU_PRICE}"/>
+            <Label Text="PLU_NAME:"/>
+            <Entry Text="{Binding PLU_NAME}"/>
+            <Label Text="PLU_BARCODE:"/>
+            <Entry Text="{Binding PLU_BARCODE}"/>
+            <Label Text="PLU_TAXRATE:"/>
+            <Entry Text="{Binding PLU_TAXRATE}"/>
+            <Label Text="PLU_SPEC_REG:"/>
+            <Entry Text="{Binding PLU_SPEC_REG}"/>
+            <Label Text="PLU_DPT:"/>
+            <Entry Text="{Binding PLU_DPT}"/>
+            <Label Text="PLU_UNIT:"/>
+            <Entry Text="{Binding PLU_UNIT}"/>
+            <Label Text="PLU_LINK:"/>
+            <Entry Text="{Binding PLU_LINK}"/>
+            <Label Text="PLU_OTHERPRICE:"/>
+            <Entry Text="{Binding PLU_OTHERPRICE}"/>
+            <Label Text="PLU_DESCRIPTOR:"/>
+            <Entry Text="{Binding PLU_DESCRIPTOR}"/>
+            <Label Text="PLU_CONTAINER:"/>
+                <Entry Text="{Binding PLU_CONTAINER}"/>
+                <Button x:Name="suButton" Text="SAVE" Clicked="buttonClicked"/>
+                <Label x:Name="Backup" Text=""/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

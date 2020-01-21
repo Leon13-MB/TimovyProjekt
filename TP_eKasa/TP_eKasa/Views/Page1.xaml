@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker x:Name="pickerKasa"
+                    Title="Názov pokladne">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>E50TE Mini 512K</x:String>
+                        <x:String>E150 Flexy 1M</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Button x:Name="btn1" Clicked="test" Text="Odoslať profil z pokladne"/>
+            <Button x:Name="btn2" Clicked="btn1_Clicked" Text="Odoslať zmeny"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

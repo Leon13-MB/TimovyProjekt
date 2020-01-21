@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.OperatorView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="sl">
+                <Label Text="OPERATOR_ID"/>
+                <Label Text="{Binding OPERATOR}"/>
+                <Label Text="OPERATOR_NAME:"/>
+                <Label Text="{Binding OPERATOR_NAME}"/>
+                <Label Text="OPERATOR_PSWD:"/>
+                <Label Text="{Binding OPERATOR_PSWD}"/>
+                <Label Text="OPERATOR_XMODE:"/>
+                <Label Text="{Binding OPERATOR_XMODE}"/>
+                <Label Text="OPERATOR_ZMODE:"/>
+                <Label Text="{Binding OPERATOR_ZMODE}"/>
+                <Label Text="OPERATOR_PMODE:"/>
+                <Label Text="{Binding OPERATOR_PMODE}"/>
+                <Label Text="OPERATOR_TMODE:"/>
+                <Label Text="{Binding OPERATOR_TMODE}"/>
+                <Label Text="OPERATOR_REFUND:"/>
+                <Label Text="{Binding OPERATOR_REFUND}"/>
+                <Label Text="OPERATOR_VOID:"/>
+                <Label Text="{Binding OPERATOR_VOID}"/>
+                <Label Text="OPERATOR_SURDISC:"/>
+                <Label Text="{Binding OPERATOR_SURDISC}"/>
+                <Label x:Name="Backup" Text=""/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.Ecrloc">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Predošlé" Clicked="Previous"></Button>
+                    <Button Text="Nasledujúce" Clicked="Next"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Picker x:Name="picker"
+                    Title="Atribút">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>ERCLOC</x:String>
+                                <x:String>ECRLOC_STREETNAME</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="polozka" Placeholder="Čo hľadáme"/>
+                    <Picker x:Name="pickerPokladna"
+                            Title="Pokladňa">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>E50o</x:String>
+                                <x:String>E150o</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Vyhľadaj" Clicked="Find"></Button>
+                </StackLayout>
+                
+                <ListView x:Name ="ecrlocView" ItemSelected="ItemSelect"  ItemsSource="{Binding ecrlocs}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding ECRLOC}"/>
+                                    <Label Text="{Binding ECRLOC_LOCTYPE}"/>
+                                    <Label Text="{Binding ECRLOC_LOCDESC}"/>
+                                    <Label Text="{Binding ECRLOC_MUNICIPALITY}"/>
+                                    <Label Text="{Binding ECRLOC_STREETNAME}"/>
+                                    <Label Text="{Binding ECRLOC_BUILDINGNUMBER}"/>
+                                    <Label Text="{Binding ECRLOC_PROPERTYREGNUMBER}"/>
+                                    <Label Text="{Binding ECRLOC_POSTALCODE}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

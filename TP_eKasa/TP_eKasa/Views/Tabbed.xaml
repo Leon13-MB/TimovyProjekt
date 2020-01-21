@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP_eKasa.Views.Tabbed">
+    <!--Pages can be added as references or inline-->
+    <TabbedPage.Title></TabbedPage.Title>
+    <ContentPage Title="Hlavná stránka">
+        <ScrollView>
+            <StackLayout Padding="5, 25">
+                <Image x:Name="LoginIcon" Source="LoginIcon.png"/>
+                <Label x:Name="pokladnaName" Text="Názov pokladne: "/>
+                <Label x:Name="pokladnaPocet" Text="Maximálny počet položiek: 2000"/>
+                <Image x:Name="image"/>
+            <Button x:Name="Btn_Logout" Text="Odhlásiť sa" Clicked="LogoutProcedure"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Tabuľky">
+        <ScrollView>
+        <StackLayout Padding="5, 25">
+            <Label Text="Zoznam tabuliek."/>
+            <Button Text="Advertxt" Clicked="Advertxt"/>
+            <Button Text="Dpt" Clicked="Dpt"/>
+            <Button Text="Ecrloc" Clicked="Ecrloc"/>
+            <Button Text="Functext" Clicked="Functext"/>
+            <Button Text="Measunit" Clicked="Measunit"/>
+            <Button Text="Operator" Clicked="Operator"/>
+            <Button Text="Plu" Clicked="Plu"/>
+            <Button Text="Surdisc" Clicked="Surdisc"/>
+            <Button Text="Textlogo" Clicked="Textlogo"/>
+                <Button Text="Traillog" Clicked="Triallog"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Nahrať/Stiahnúť">
+        <ScrollView>
+            <StackLayout Padding="5, 25">
+                <Button Text="Nahrať tabuľky do pokladne" Clicked="UploadTables"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>
